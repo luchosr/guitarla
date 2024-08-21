@@ -5,6 +5,7 @@ const Header = ({
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  clearCart,
 }) => {
   const isEmpty = useMemo(() => cart.length === 0, [cart]);
 
@@ -21,7 +22,7 @@ const Header = ({
             <a href="index.html">
               <img
                 className="img-fluid"
-                src="./public/img/logo.svg"
+                src="./img/logo.svg"
                 alt="imagen logo"
               />
             </a>
@@ -30,7 +31,7 @@ const Header = ({
             <div className="carrito">
               <img
                 className="img-fluid"
-                src="./public/img/carrito.png"
+                src="./img/carrito.png"
                 alt="imagen carrito"
               />
 
@@ -97,7 +98,10 @@ const Header = ({
                 <p className="text-end">
                   Total pagar: <span className="fw-bold">${cartTotal}</span>
                 </p>
-                <button className="btn btn-dark w-100 mt-3 p-2">
+                <button
+                  className="btn btn-dark w-100 mt-3 p-2"
+                  onClick={clearCart}
+                >
                   Vaciar Carrito
                 </button>
               </div>
